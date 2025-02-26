@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap');
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: repeating-linear-gradient(30deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00, #00ffff);
+    color: #ff00ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: repeating-linear-gradient(90deg, #00ff00, #ff0000, #0000ff, #ffff00);
+    padding: 30px;
+    border: 10px dashed #000;
+}
+
+.rainbow {
+    background: repeating-linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking {
+    color: #000;
+    animation: blink 0.3s infinite;
+}
+
+.ugly-image {
+    max-width: 90%;
+    height: auto;
+    text-align: center;
+    border: 5px dashed #ff00ff;
+    box-shadow: 0 0 20px 10px #ff0000;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.review {
+    background: #ffcc00;
+    color: #0000ff;
+    padding: 20px;
+    border: 5px solid #ff0000;
+    font-size: 22px;
+    text-shadow: 2px 2px 5px #ff00ff;
+    box-shadow: 5px 5px 0px #000;
+}
+
+.ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background: #ff0000;
+    padding: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ad {
+    background: #00ffff;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 5px solid #ff00ff;
+    text-shadow: 1px 1px 3px black;
+    animation: wiggle 0.5s infinite alternate;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+@media (max-width: 768px) {
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .ugly-image {
+        max-width: 100%;
+    }
+
+    .ads {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .review {
+        font-size: 16px;
+    }
+
+    .ugly-image {
+        width: 80%;
+    }
+}
