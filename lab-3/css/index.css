@@ -1,0 +1,129 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFC0CB 0%, #ff00ff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+h2 {
+    font-family: 'Lobster', cursive;
+    color: #2d3748;
+    text-align: center;
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding: 20px 0;
+}
+
+main {
+    width: 80%;
+    min-height: 90vh;
+    margin: 80px auto 20px;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    border-radius: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background: rgba(255, 255, 255, 1);
+    gap: 30px;
+    margin: 50px 0;
+    padding: 0 20px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+li {
+    list-style-type: none; 
+}
+li:before {
+    content: "🎀 "; 
+}
+
+p {
+    line-height: 1.8;
+    color: #4a5568;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+
+.fig {
+    display: block; 
+    text-align: center; 
+    font-style: italic; 
+    margin-top: 0; 
+    margin-bottom: 5px; 
+    color: #666; 
+   }
+  
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff0f5;
+    border: 2px solid #ff66b2;
+}
+th, td {
+    border: 1px solid #ff99cc;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background: #ff66b2;
+    color: white;
+}
+tr:nth-child(even) {
+    background: #ffd9e6;
+}
+tr:hover {
+    background: #ffb3d9;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#start-game {
+    background-color: #FFC5D3; 
+    border: none; 
+    color: #ffffff; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    font-family: Arial, sans-serif; 
+    border-radius: 8px; 
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-game:hover {
+    background-color: #FFB3C6; 
+    transform: scale(1.05);
+}
+
+#start-game:active {
+    background-color: #FF8FAB; 
+    transform: scale(0.95); 
+}
