@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧣 Минибар в Шарфе – ПОЧЕМУ ТЫ ЕЩЁ НЕ КУПИЛ? 🍾</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header class="header">
+        <button id="theme-toggle">🌙 Тёмная тема</button>
+        <h1>🎉 ВНИМАНИЕ! ВАЖНО! ШОК! 🎉</h1>
+        <h2 class="rainbow">🔥 МИНИБАР В ШАРФЕ – САМЫЙ ЛУЧШИЙ ГАДЖЕТ 2025 ГОДА 🔥</h2>
+        <marquee behavior="scroll" direction="left">💥 ПОТРЯСАЮЩАЯ СКИДКА! 💥 ПОКУПАЙ СЕЙЧАС! 💥</marquee>
+    </header>
+
+    <main>
+        <section class="reasons">
+            <h2 class="blinking">ТОП-5 ПРИЧИН КУПИТЬ ПРЯМО СЕЙЧАС!!!</h2>
+            <img src="img/photo_2025-02-26_19-02-32.jpg" alt="Минибар в Шарфе" class="ugly-image">
+            <ol>
+                <li>🧣 Шарф делает минибар модным! (Теперь ты модный)</li>
+                <li>🍾 Держит напитки в идеальном состоянии! (Никаких доказательств)</li>
+                <li>⚡ Энергия космоса в каждой бутылке! (Мы не проверяли)</li>
+                <li>🔥 Согревает не только напитки, но и твою душу! (Может быть)</li>
+                <li class="big-text">💰 ВСЕГО <span class="price">99 999₽</span> <b>99₽!!!</b> (ТОЛЬКО СЕГОДНЯ!)</li>
+            </ol>
+        </section>
+
+        <section class="reviews">
+            <h2>🌟 ОТЗЫВЫ О ПОКУПКЕ 🌟</h2>
+            <div class="reviews-container"></div>
+            <form id="review-form">
+                <h3>Добавить отзыв</h3>
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <textarea id="text" placeholder="Ваш отзыв" required></textarea>
+                <input type="number" id="rating" placeholder="Оценка (1-5)" min="1" max="5" required>
+                <input type="file" id="image" accept="image/*">
+                <button type="submit">Добавить отзыв</button>
+            </form>
+            <div class="controls">
+                <button id="sort-rating">Сортировать по оценке</button>
+                <button id="filter-high">Фильтр: Только 5★</button>
+            </div>
+        </section>
+
+        <aside class="ads">
+            <div class="ad blinking">💰 <b>НАЖМИ СЮДА И ПОЛУЧИ 100000₽!!!</b> 💰</div>
+            <div class="ad marquee">🔥 <b>КАК ПОХУДЕТЬ, ЕСЛИ ТЫ ПРОСТО НЕ ЕШЬ?</b> 🔥</div>
+            <div class="ad rotating">🛸 <b>ВСЕГО ПОСЛЕ ОДНОЙ ТАБЛЕТКИ МУЖ ДОЛБИТ МЕНЯ ЧАСАМИ</b> 🛸</div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <marquee behavior="scroll" direction="right">© 2025 Минибар в Шарфе™. Мы вообще ни за что не отвечаем.</marquee>
+    </footer>
+    
+    <script type="module" src="script/index.js"></script>
+    <script src="script/cookie.js"></script>
+</body>
+

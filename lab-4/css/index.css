@@ -1,0 +1,263 @@
+@import url('css/reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap');
+
+/* === ОБЩИЕ СТИЛИ === */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: repeating-linear-gradient(30deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00, #00ffff);
+    color: #ff00ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* === ХЕДЕР === */
+.header {
+    background: repeating-linear-gradient(90deg, #00ff00, #ff0000, #0000ff, #ffff00);
+    padding: 30px;
+    border: 10px dashed #000;
+}
+
+/* === РАДУЖНЫЙ ТЕКСТ === */
+.rainbow {
+    background: repeating-linear-gradient(45deg, red, orange, yellow, green, rgb(35, 35, 255), indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* === ЭФФЕКТ МИГАНИЯ === */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.blinking {
+    color: #000;
+    animation: blink 0.3s infinite;
+}
+
+/* === КАРТИНКА === */
+.ugly-image {
+    max-width: 90%;
+    height: auto;
+    border: 8px solid #ff00ff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+/* === АНИМАЦИЯ КРЕНЖА === */
+@keyframes wiggle {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+/* === РЕКЛАМА === */
+.ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background: #ff0000;
+    padding: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ad {
+    background: #00ffff;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 5px solid #ff00ff;
+    text-shadow: 1px 1px 3px black;
+    animation: wiggle 0.5s infinite alternate;
+}
+
+/* === ОТЗЫВЫ === */
+.reviews {
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+#review-form input,
+#review-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff6600;
+    border-radius: 5px;
+}
+
+#review-form button {
+    padding: 10px;
+    background: #ff6600;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#review-form button:hover {
+    background: #ff4500;
+}
+
+.reviews-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.review-item {
+    flex: 0 0 auto;
+    width: 250px;
+    background: #ffcc00;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #ff0000;
+    text-align: center;
+}
+
+/* === ТЁМНАЯ ТЕМА === */
+.dark-mode .reviews-container {
+    border-bottom-color: #ffcc00;
+}
+
+.dark-mode .review-item {
+    background: #333;
+    color: #eee;
+    border-color: #555;
+}
+
+.dark-mode .blinking{
+    color: #eee;
+}
+
+.dark-mode {
+    background: #111 !important;
+    color: #eee !important;
+}
+
+.dark-mode .header {
+    background: #222 !important;
+    border-color: #555 !important;
+}
+
+.dark-mode .review {
+    background: #333 !important;
+    color: #ddd !important;
+    border-color: #666 !important;
+}
+
+.dark-mode .ads {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.dark-mode .ugly-image {
+    border: 8px solid #ffffff;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode .review {
+    background: #222 !important;
+    color: #eee !important;
+    border-color: #555 !important;
+    box-shadow: 5px 5px 0px #444 !important;
+}
+
+.dark-mode .review b {
+    color: #f2a6fc !important; /* Выделение имени */
+}
+
+.dark-mode .rainbow {
+    background: repeating-linear-gradient(45deg, #ffcc00, #ff6600, #ff0000);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.dark-mode .ads {
+    background: #111 !important;
+    color: #ffcc00 !important;
+    border-top: 3px solid #ffcc00;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.dark-mode .ad {
+    background: #222 !important;
+    color: #ffcc00 !important;
+    border-color: #ff9900 !important;
+    text-shadow: 1px 1px 5px rgba(255, 204, 0, 0.7);
+}
+
+/* === КНОПКА СМЕНЫ ТЕМЫ === */
+#theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 1000;
+}
+
+#theme-toggle:hover {
+    background: #444;
+    transform: scale(1.1);
+}
+
+.dark-mode #theme-toggle {
+    background: #eee;
+    color: #222;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .ugly-image {
+        max-width: 100%;
+    }
+
+    .ads {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .review {
+        font-size: 16px;
+    }
+
+    .ugly-image {
+        width: 80%;
+    }
+}
+
