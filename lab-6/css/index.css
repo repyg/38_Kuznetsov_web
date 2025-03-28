@@ -453,22 +453,296 @@ body {
     border: 2px dashed #ccc;
 }
 
+.api-nav {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--bg) 100%);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(197, 166, 86, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.api-nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.api-nav button {
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    color: var(--gold);
+    cursor: pointer;
+    padding: 0.6rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.api-nav button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(197, 166, 86, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.api-nav button:hover {
+    background: rgba(197, 166, 86, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(197, 166, 86, 0.2);
+}
+
+.api-nav button:hover::before {
+    left: 100%;
+}
+
+.api-nav button:active {
+    transform: translateY(0);
+}
+
+/* Стили для API-блоков */
+.api-section {
+    background: var(--section-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.api-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(211, 47, 47, 0.1) 0%, rgba(211, 47, 47, 0) 70%);
+}
+
+.api-section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.api-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.api-data {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.api-card {
+    background: var(--primary);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(197, 166, 86, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.api-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--gold);
+}
+
+.api-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent), var(--gold));
+}
+
+.api-card h3 {
+    color: var(--gold);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.api-card p {
+    color: var(--text);
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.api-card .api-meta {
+    font-size: 0.9rem;
+    color: rgba(240, 240, 240, 0.7);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(197, 166, 86, 0.3);
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--gold);
+    font-style: italic;
+}
+
+.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(5, end) infinite;
+    margin-left: 0.3rem;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+.error {
+    background: rgba(211, 47, 47, 0.2);
+    color: var(--text);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    text-align: center;
+}
+
+.error::before {
+    content: '⚠️';
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
-    .block-creator {
-        left: 1rem;
-        bottom: 1rem;
-        flex-direction: column;
-        width: calc(100% - 2rem);
-        max-width: 300px;
+    .api-nav ul {
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
     
-    .block-creator select {
-        width: 100%;
-        min-width: auto;
+    .api-nav button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
     
-    .add-block-btn {
-        width: 100%;
-        justify-content: center;
+    .api-data {
+        grid-template-columns: 1fr;
     }
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.api-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.api-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: calc(var(--order) * 0.1s);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.error {
+    background: #e74c3c;
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* Стили для выбора метода API */
+.api-method-select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--gold);
+    background: var(--section-bg);
+    color: var(--text);
+}
+
+.api-method-select option {
+    background: var(--primary);
+}
+
+/* Группа тела запроса */
+.api-body-group {
+    display: none;
+}
+
+.api-method-select:not([value="GET"]):not([value="DELETE"]) ~ .api-body-group {
+    display: block;
+}
+
+/* История запросов */
+.api-history {
+    background: rgba(197, 166, 86, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.history-list li {
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed rgba(197, 166, 86, 0.3);
+}
+
+/* Подсветка разных методов */
+.history-list li:nth-child(5n+1) { color: var(--accent); } /* GET */
+.history-list li:nth-child(5n+2) { color: #4CAF50; } /* POST */
+.history-list li:nth-child(5n+3) { color: #FFC107; } /* PUT */
+.history-list li:nth-child(5n+4) { color: #2196F3; } /* PATCH */
+.history-list li:nth-child(5n)   { color: #F44336; } /* DELETE */

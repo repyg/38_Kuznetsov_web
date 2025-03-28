@@ -5,7 +5,7 @@ import { AbilitiesBlock } from './blocks/AbilitiesBlock.js';
 import { BioBlock } from './blocks/BioBlock.js';
 import { EquipmentBlock } from './blocks/EquipmentBlock.js';
 import { DividerBlock } from './blocks/DividerBlock.js';
-
+import { ApiBlock } from './blocks/ApiBlock.js';
 
 export class AppState {
     static instance = null;
@@ -41,7 +41,8 @@ export class AppState {
                 }
             }],
             ['AbilitiesBlock', (block, data) => this.handleAbilitiesBlock(block, data)],
-            ['EquipmentBlock', (block, data) => this.handleEquipmentBlock(block, data)]
+            ['EquipmentBlock', (block, data) => this.handleEquipmentBlock(block, data)],
+            ['ApiBlock', (block, data) => this.handleApiBlock(block, data)]
         ]);
         
         this.init();
@@ -233,6 +234,9 @@ export class AppState {
             
             case 'DividerBlock':
                 return new DividerBlock();
+
+            case 'ApiBlock':
+                return new ApiBlock();    
             
             default:
                 console.warn('Неизвестный тип блока:', type);
@@ -377,7 +381,8 @@ export class AppState {
           ImageBlock: 'Изображение',
           AbilitiesBlock: 'Способности',
           EquipmentBlock: 'Снаряжение',
-          DividerBlock: 'Разделитель'
+          DividerBlock: 'Разделитель',
+          ApiBlock: 'API Данные'
         }).map(([val, text]) => `<option value="${val}">${text}</option>`).join('');
       
         const addBtn = document.createElement('button');
@@ -403,7 +408,8 @@ export class AppState {
             ImageBlock,
             AbilitiesBlock,
             EquipmentBlock,
-            DividerBlock
+            DividerBlock,
+            ApiBlock
         }[className];
     }
 
@@ -417,6 +423,27 @@ export class AppState {
         });
     }
     
+    handleApiBlock(block, data) {
+        block.apiType = data.apiType;
+        block.apiConfig = {
+            method: data.apiMethod || 'GET',
+            body: data.apiBody ? JSON.parse(data.apiBody) : null,
+            resourceId: data.resourceId || ''
+        };
+        
+        if (block.apiType === 'jsonplaceholder') {
+            let url = 'https://jsonplaceholder.typicode.com/posts';
+            if (block.apiConfig.resourceId && block.apiConfig.method !== 'POST') {
+                url += `/${block.apiConfig.resourceId}`;
+            }
+            
+            block.fetchData(
+                url,
+                block.apiConfig.method,
+                block.apiConfig.body
+            );
+        }
+    }
     handleAddField(e) {
         const wrapper = e.target.closest('.block-wrapper');
         if (!wrapper) return;
